@@ -24,7 +24,9 @@ const user = new User({
    
 });
 try{
+    // work on this feature 
     const savedUser = await user.save()
+    savedUser
     res.send(user)
 }catch(err){
     res.status(400).send(err);

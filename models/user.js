@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const Schema = mongoose.Schema;
 const userSchema = new mongoose.Schema({
 name:{
 
@@ -11,23 +11,24 @@ name:{
 },
 mobile:{
 
-    type:Number,
-    required:true,
-    max: 255,
-    min:6
+    type: Number,
+    min: 0,
+    max:100
 
 },
 password:{
  type:String,
- required:true,
- max: 1024,
+ max:10,
  min:6
+ 
 
+},
+feeling:{
+
+  Mood:  { type: Schema.Types.ObjectId, ref: 'moods' }
 
 }
 
-
-
 });
 
-module.exports = mongoose.model('db', userSchema);
+module.exports = mongoose.model('User', userSchema);

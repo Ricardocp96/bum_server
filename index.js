@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 const authURLRoute= require('./routes/auth') ;
+const moodURLRoute = require('./routes/moods');
 const dotenv = require('dotenv'); 
 const bodyParser = require('body-parser');
 const mongoose = require ('mongoose'); 
@@ -27,6 +28,7 @@ connection();
 // Route middlewares 
 app.use(express.json());
 app.use('/api/user',  authURLRoute  );
+app.use('/api/mood', moodURLRoute);
 
 
 

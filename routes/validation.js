@@ -1,7 +1,5 @@
 const joi = require('@hapi/joi')
 
-
-
 //reg val 
 const reg_val = (data) =>{
 const schema= joi.object({
@@ -12,8 +10,10 @@ const schema= joi.object({
     
     .min(6),
     password: joi.string()
-    .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
-
+    .
+    
+    pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+   
 });
 return  schema.validate(data);
 
