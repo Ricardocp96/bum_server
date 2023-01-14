@@ -22,12 +22,8 @@ password:{
  min:6
  
 
-},
-feeling:{
-
-  Mood:  { type: Schema.Types.ObjectId, ref: 'moods' }
-
 }
+
 
 });
 

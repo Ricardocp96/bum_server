@@ -1,32 +1,20 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const User = require('../models/user')
-const moodSchema = new mongoose.Schema({
 
-
-
-    feeling:{
-    
-        type:String,
-        required:true,
-        min:7,
-        max:255
-    
+const feelingSchema = new Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
-    user:{
-       user: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+    feeling: {
+        type: String,
+        required: true
     },
-    timestamp:{
-    type: Number, 
-    default: function 
-    () {
-    
-        return this_id.getTimestamp() 
-        
+    date: {
+        type: Date,
+        default: Date.now
     }
-    
-    }
-    
-    
-    });
-    module.exports = mongoose.model('moods', moodSchema);
+});
+
+module.exports = mongoose.model('moods', feelingSchema);
