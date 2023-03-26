@@ -26,7 +26,7 @@ return  schema.validate(data);
 const log_val = (data) =>{
 
 const schema=joi.object({
-    number: joi.number().min(6).required(),
+    mobile: joi.number().min(6).required(),
     password:joi.string().min(6).required()
 });
 return  schema.validate(data);
