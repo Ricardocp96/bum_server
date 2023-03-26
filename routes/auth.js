@@ -9,18 +9,25 @@ router.post('/register', async (req, res) => {
 
   const {error} = reg_val(req.body)
     if (error) return res.status(400).send(error.details[0].message);
-
+    const pass1= req.body.password
+    const pass2=req.body.confirmpassword
+    if(pass1 !=pass2) return res.status(400).send("password missmatch")
     //user val 
     const userexists = await User.findOne({mobile: req.body.mobile});
     if(userexists) return res.status(400).send("this mobile number is already registered")
+  
+    
+   
+
     const salt = await bcrypt.genSalt(10);
     const hashedPassword= await bcrypt.hash(req.body.password, salt);
 
 const user = new User({
 
-    name:req.body.name,
+    name:req.body.uname,
     mobile:req.body.mobile,
     password:hashedPassword
+   
    
 });
 try{

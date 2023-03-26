@@ -1,30 +1,63 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const userSchema = new mongoose.Schema({
-name:{
+    type: {
+        type: String,
+        enum: ['adult', 'student'],
+        required: true
+      },
+      profile: {
+        type: mongoose.Schema.Types.ObjectId,
+        refPath: 'type',
+        required: true
+      }
+    });
 
-    type:String,
-    required:true,
-    min:7,
-    max:255
+    const studentSchema = new mongoose.Schema({
+        mobile: {
+          type: String,
+          required: true,
+          unique: true
+        },
+        name: {
+          type: String,
+          required: true
+        },
+        password: {
+          type: String,
+          required: true
+        },
+   
+        school: {
+          type: String,
+          required: true
+        },
+        grade: {
+          type: String,
+          required: true
+        },
+        teacherName: {
+          type: String,
+          required: true
+        }
+      });
+      const adultSchema = new mongoose.Schema({
+        mobile: {
+          type: String,
+          required: true,
+          unique: true
+        },
+        name: {
+          type: String,
+          required: true
+        },
+        password: {
+          type: String,
+          required: true
+        },
+      
+      });
 
-},
-mobile:{
 
-    type: Number,
-    min: 0,
-    max:100
-
-},
-password:{
- type:String,
- max:10,
- min:6
- 
-
-}
-
-
-});
 
 module.exports = mongoose.model('User', userSchema);
