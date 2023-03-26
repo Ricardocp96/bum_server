@@ -3,17 +3,15 @@ const userSchema = new mongoose.Schema({
   uname:{
   
       type:String,
-      required:true,
-      min:7,
-      max:255
+      required:true
+     
   
   },
   mobile:{
   
       type:Number,
-      required:true,
-      max: 255,
-      min:6
+      required:true
+     
   
   },
   password:{

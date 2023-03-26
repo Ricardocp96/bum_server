@@ -6,9 +6,9 @@ const schema= joi.object({
 
     uname:joi.string().alphanum().min(6).required(),
     mobile: joi.number()
-    .integer()
+    .integer(),
     
-    .min(6),
+    
     password: joi.string()
     .
     
