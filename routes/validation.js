@@ -4,7 +4,7 @@ const joi = require('@hapi/joi')
 const reg_val = (data) =>{
 const schema= joi.object({
 
-    uname:joi.string().alphanum().min(6).required(),
+    uname:joi.string().alphanum().required(),
     mobile: joi.number()
     .integer(),
     
